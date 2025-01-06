@@ -23,12 +23,14 @@ function CriarToDo(texto, prioridade, array) {
 }
 
 function AtualizarToDo(textoAntigo, textoNovo, array) {
-  const tarefa = array.find(tarefa => tarefa.Texto === textoAntigo)
-  if (tarefa) {
-    tarefa.Texto = textoNovo
-    return true
-  }
-  return false
+  let atualizado = false
+  array.forEach(todo => {
+    if(todo.Texto == textoAntigo){
+      todo.Texto = textoNovo
+      atualizado = true
+    }
+  })
+  return atualizado
 }
 
 function ConcluirToDo() {
